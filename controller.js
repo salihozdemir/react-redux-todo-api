@@ -31,8 +31,7 @@ exports.updateTodo = async (req, res, next) => {
     if (title) {
       updateQuery.title = title;
     }
-
-    if (Boolean(completed)) {
+    if (typeof completed === "boolean") {
       updateQuery.completed = completed;
     }
 
