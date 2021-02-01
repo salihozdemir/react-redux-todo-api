@@ -1,8 +1,17 @@
+const {
+  getTodos,
+  createTodo,
+  updateTodo,
+  deleteAllTodos,
+  deleteTodo,
+} = require("./controller");
 const router = require("express").Router();
 
-router.get("/", (req, res, next) => {
-  res.send("OK!");
-});
+router.get("/", getTodos);
+router.post("/", createTodo);
+router.patch("/:id", updateTodo);
+router.delete("/", deleteAllTodos);
+router.delete("/:id", deleteTodo);
 
 module.exports = (app) => {
   app.use("/api", router);
