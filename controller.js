@@ -27,13 +27,12 @@ exports.updateTodo = async (req, res, next) => {
     const updateQuery = {};
     const { id } = req.params;
     const { title, completed } = req.body;
-    console.log(completed);
 
     if (title) {
       updateQuery.title = title;
     }
 
-    if (String(completed)) {
+    if (Boolean(completed)) {
       updateQuery.completed = completed;
     }
 
